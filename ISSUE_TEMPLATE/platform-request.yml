@@ -1,0 +1,24 @@
+name: Platform request
+description: A service needs something from the platform. The DevOps agent picks it up.
+labels: ["type:platform-request", "agent:ops"]
+body:
+  - type: input
+    id: service
+    attributes:
+      label: Service
+      description: As team/name, for example checks/probe-worker.
+      placeholder: checks/probe-worker
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What the service needs
+      description: Egress, a backing store, a quota increase, a new host name, and why.
+    validations:
+      required: true
+  - type: input
+    id: spec-pr
+    attributes:
+      label: PR with the service.yaml change
+      description: Link it if one exists. The spec review happens on that PR.

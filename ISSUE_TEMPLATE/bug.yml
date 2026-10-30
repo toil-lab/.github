@@ -1,0 +1,33 @@
+name: Bug
+description: Something is broken. Whoever triages it records the first routing and the root cause.
+labels: ["type:bug"]
+body:
+  - type: textarea
+    id: seen
+    attributes:
+      label: What happened
+      description: What you saw, where (service, namespace, URL), and when.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should have happened
+    validations:
+      required: true
+  - type: dropdown
+    id: first-guess
+    attributes:
+      label: First guess at the cause
+      description: Sets the first routing. If the root cause turns out to be the other side, the issue gets the misrouted label.
+      options:
+        - App code (developer agent)
+        - Platform (DevOps agent)
+        - Don't know
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, alerts, or links
+      render: text

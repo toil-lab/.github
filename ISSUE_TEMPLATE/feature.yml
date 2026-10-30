@@ -1,0 +1,32 @@
+name: Feature
+description: A change to what statuspage does. The developer agent picks it up.
+labels: ["type:feature", "agent:dev"]
+body:
+  - type: textarea
+    id: change
+    attributes:
+      label: What should change
+      description: The behavior someone using statuspage should see afterward.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: Checks that prove it works, one per line.
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform changes expected
+      description: The developer agent confirms this when it writes service.yaml. Anything but "None" goes to the DevOps agent for spec review.
+      options:
+        - None
+        - New service
+        - New backing store
+        - New egress
+        - Scaling change
+        - Not sure
+    validations:
+      required: true
